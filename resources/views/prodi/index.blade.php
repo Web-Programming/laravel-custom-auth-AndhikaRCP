@@ -26,6 +26,8 @@
                             <a href="{{url('/prodi/' .$item->id .'/edit')}} " class="btn btn-info">Info</a> --}}
                              <form action="{{route('prodi.destroy',['prodi'=>$item->id])}} "
                             method="POST">
+                            @method('DELETE')
+                            @csrf
                             <a href="{{url('/prodi/'.$item->id)}}" class="btn btn-warning">
                         Detail
                         </a>
@@ -33,9 +35,9 @@
                         Ubah
                         </a>
 
-                            @method('DELETE')
-                            @csrf
+                            @can('delete', $item)
                             <button type="submit" class="btn btn-danger">Hapus</button>
+                            @endcan
                         </form>
 
                         </td>

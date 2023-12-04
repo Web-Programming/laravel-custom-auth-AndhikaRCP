@@ -14,6 +14,7 @@ class ProdiController extends Controller
     public function store(Request $request){
         // dump($request);
         // echo $request->nama;
+        $this->authorize('create', Prodi::class);
 
         $validateData = $request->validate([
             'nama' => 'required|min:5|max:20',
@@ -70,7 +71,8 @@ class ProdiController extends Controller
 
     public function destroy(Prodi $prodi)
     {
+        $this->authorize('delete',$prodi);
         $prodi->delete();
-        return redirect('prodi')->with("info","Prodi $prodi->nama berhasil dihapus");
+        return redirect('prodi')->with('info','Prodi $prodi->nama berhasil dihapus');
     }
 }
