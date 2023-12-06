@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\RegisterController;
+use App\Http\Controllers\API\ProdiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('register', [RegisterController::class, 'register']);
 Route::post('login', [RegisterController::class, 'login']);
+
+//API CRUD
+Route::middleware('auth:sanctum')->get('/prodi',[ProdiController::class, 'index']);
+Route::middleware('auth:sanctum')->get('/prodi/store',[ProdiController::class, 'store']);
+Route::middleware('auth:sanctum')->get('/prodi/update/{id}',[ProdiController::class, 'update']);
+Route::middleware('auth:sanctum')->get('/prodi/delete/{id}',[ProdiController::class, 'delete']);
