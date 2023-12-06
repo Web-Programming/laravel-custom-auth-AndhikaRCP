@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\prodi;
 use Illuminate\Http\Request;
 
-class ProdiController extends Controller
+class ProdiController extends BaseController
 {
 
     public function create(){

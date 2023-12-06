@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use App\Models\no;
 use Illuminate\Http\Request;
@@ -33,7 +33,7 @@ class BaseController extends Controller
         if (!empty($errorMessages)) {
             $response['data'] = $errorMessages;
         }
-        return response()->json($response, 200);
+        return response()->json($response, $code);
     }
 
     public function index()
@@ -60,33 +60,5 @@ class BaseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(no $no)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(no $no)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, no $no)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(no $no)
-    {
-        //
-
-   }
 }
